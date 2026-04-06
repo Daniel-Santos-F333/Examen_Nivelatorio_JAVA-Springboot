@@ -39,10 +39,15 @@ public class CursoController {
         cursoService.eliminar(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    /**
-    @PostMapping("/{id}/estudiante/{id2}")
-    public ResponseEntity<Void> agregar_curso_estudiante(@PathVariable Long id, @PathVariable Long id2){
-
+    @PostMapping("/{cursoId}/estudiantes/{estudianteId}")
+    public ResponseEntity<Void> agregar_curso_estudiante(@PathVariable Long cursoId, @PathVariable Long estudianteId){
+        cursoService.matricularEstudiante(cursoId, estudianteId);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    **/
+
+    @DeleteMapping("/{cursoId}/estudiantes/{estudianteId}")
+    public ResponseEntity<Void> eliminar_curso_estudiante(@PathVariable Long cursoId, @PathVariable Long estudianteId){
+        cursoService.desmatricularEstudiante(cursoId, estudianteId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

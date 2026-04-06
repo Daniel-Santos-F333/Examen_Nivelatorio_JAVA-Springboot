@@ -11,4 +11,6 @@ public interface CursoService {
     CursoResponseDTO crear(CursoRequestDTO dto);
     CursoResponseDTO actualizar(CursoRequestDTO dto, Long id);
     void eliminar(Long id);
+    void matricularEstudiante(Long cursoId, Long estudianteId);
+    void desmatricularEstudiante(Long cursoId, Long estudianteId);
 }
