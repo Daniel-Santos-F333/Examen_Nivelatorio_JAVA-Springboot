@@ -22,7 +22,8 @@ create table cursos(
 create table curso_estudiante(
     id int not null auto_increment, 
     curso_id int not null, 
-    estudiante_id int not null, 
+    estudiante_id int not null,
+    primary key (id),
     foreign key (curso_id) references cursos(id), 
     foreign key (estudiante_id) references estudiantes(id)
 );
